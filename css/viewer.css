@@ -1,0 +1,28 @@
+.image-viewer {
+  position: fixed; z-index: 600; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .2s ease, visibility .2s ease;
+}
+.image-viewer.open { opacity: 1; visibility: visible; pointer-events: auto; }
+.viewer-backdrop { position: absolute; inset: 0; background: rgba(1,8,13,.94); backdrop-filter: blur(10px); }
+.viewer-shell { position: absolute; inset: 16px; display: grid; grid-template-rows: auto minmax(0,1fr); border-radius: 18px; overflow: hidden; background: #071522; border: 1px solid rgba(255,255,255,.15); box-shadow: 0 35px 90px rgba(0,0,0,.55); }
+.viewer-header { min-height: 64px; padding: 10px 14px 10px 20px; display: flex; align-items: center; justify-content: space-between; gap: 18px; border-bottom: 1px solid rgba(255,255,255,.1); background: rgba(8,24,37,.96); }
+.viewer-header p { margin: 0 0 3px; color: var(--cyan); font-size: 10px; font-weight: 900; letter-spacing: .15em; }
+.viewer-header h2 { margin: 0; color: #fff; font-size: clamp(18px, 1.5vw, 28px); }
+.viewer-toolbar { display: flex; align-items: center; gap: 7px; }
+.viewer-toolbar button, .viewer-toolbar output { min-width: 42px; height: 40px; padding: 0 12px; display: grid; place-items: center; border-radius: 10px; color: #eefaff; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.13); font-size: 14px; font-weight: 800; }
+.viewer-toolbar button:hover { background: rgba(112,228,213,.15); border-color: rgba(112,228,213,.35); }
+.viewer-toolbar output { min-width: 66px; color: var(--cyan); }
+.viewer-toolbar .viewer-close { font-size: 25px; }
+.viewer-viewport { position: relative; min-width: 0; min-height: 0; overflow: hidden; touch-action: none; cursor: grab; background: radial-gradient(circle at center, #122e42, #030b11 72%); outline: none; }
+.viewer-viewport.dragging { cursor: grabbing; }
+.viewer-viewport img { position: absolute; left: 0; top: 0; max-width: none; user-select: none; pointer-events: none; will-change: transform; transform-origin: 0 0; }
+.viewer-hint { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); padding: 8px 13px; border-radius: 999px; color: #d6e7ee; background: rgba(3,12,19,.76); border: 1px solid rgba(255,255,255,.12); font-size: 12px; pointer-events: none; transition: opacity .25s ease; white-space: nowrap; }
+.viewer-viewport.interacted .viewer-hint { opacity: 0; }
+
+@media (max-width: 760px) {
+  .viewer-shell { inset: 6px; border-radius: 14px; }
+  .viewer-header { min-height: 104px; padding: 9px 10px; align-items: flex-start; flex-direction: column; gap: 7px; }
+  .viewer-header h2 { font-size: 17px; max-width: 92vw; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .viewer-toolbar { width: 100%; gap: 5px; overflow-x: auto; padding-bottom: 1px; }
+  .viewer-toolbar button, .viewer-toolbar output { flex: 0 0 auto; min-width: 38px; height: 36px; padding: 0 9px; font-size: 12px; }
+  .viewer-hint { max-width: calc(100% - 20px); white-space: normal; text-align: center; font-size: 10px; }
+}

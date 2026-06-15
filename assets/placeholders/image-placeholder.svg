@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#06111f"/><stop offset="1" stop-color="#12354d"/></linearGradient></defs>
+<rect width="1280" height="720" fill="url(#g)"/><rect x="70" y="70" width="1140" height="580" rx="36" fill="#0d2639" stroke="#2ce1c9" stroke-opacity=".45" stroke-width="3"/>
+<circle cx="640" cy="295" r="64" fill="#153f53" stroke="#2ce1c9" stroke-width="4"/><path d="M620 260L680 295L620 330Z" fill="#2ce1c9"/>
+<text x="640" y="420" text-anchor="middle" fill="#eef9fc" font-family="Arial, sans-serif" font-size="44" font-weight="700">图片暂不可用</text>
+<text x="640" y="475" text-anchor="middle" fill="#a8c2cf" font-family="Arial, sans-serif" font-size="25">请稍后刷新或联系作品团队</text></svg>
