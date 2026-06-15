@@ -643,3 +643,235 @@ body.modal-open { overflow: hidden; }
   .video-actions { margin-top: 8px; }
   .video-actions .button { width: 100%; }
 }
+
+
+/* ===== Four core technologies: tabbed detail view ===== */
+.technology-tabs {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: -2px 0 14px;
+}
+.technology-tab {
+  min-width: 0;
+  min-height: 48px;
+  padding: 9px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 13px;
+  border: 1px solid rgba(44, 91, 120, .18);
+  color: #47677a;
+  background: rgba(255,255,255,.82);
+  box-shadow: 0 10px 28px rgba(20,66,88,.07);
+  font-size: clamp(14px, .94vw, 18px);
+  font-weight: 900;
+  transition: transform .2s ease, color .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.technology-tab span {
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: #168d82;
+  background: #dff8f4;
+  font-size: 12px;
+}
+.technology-tab.active {
+  color: #052d3c;
+  border-color: rgba(66,203,187,.72);
+  background: linear-gradient(135deg, #d9fff8, #a9f2e7);
+  box-shadow: 0 15px 34px rgba(38,161,148,.18);
+}
+.technology-tab.active span { color: #fff; background: #168d82; }
+.technology-detail {
+  display: grid;
+  grid-template-columns: minmax(300px, .72fr) minmax(0, 1.28fr);
+  gap: clamp(16px, 1.7vw, 28px);
+}
+.technology-copy {
+  min-height: 0;
+  padding: clamp(22px, 2vw, 36px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+.technology-kicker {
+  margin: 0 0 10px;
+  color: #168d82;
+  font-size: clamp(12px, .8vw, 15px);
+  font-weight: 900;
+  letter-spacing: .15em;
+}
+.technology-copy h3 {
+  margin: 0;
+  font-size: clamp(26px, 2vw, 39px);
+  line-height: 1.2;
+}
+.technology-description {
+  margin: 16px 0 0;
+  color: #5a7688;
+  font-size: clamp(15px, 1vw, 19px);
+  line-height: 1.68;
+}
+.technology-points {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.technology-points li {
+  position: relative;
+  padding: 11px 12px 11px 38px;
+  border-radius: 12px;
+  color: #294e62;
+  background: #eef8f8;
+  border: 1px solid rgba(66,203,187,.16);
+  font-size: clamp(14px, .92vw, 18px);
+  line-height: 1.45;
+}
+.technology-points li::before {
+  content: "✓";
+  position: absolute;
+  left: 14px;
+  top: 10px;
+  color: #168d82;
+  font-weight: 900;
+}
+.technology-result {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  color: #143e51;
+  background: linear-gradient(135deg, #dff7ff, #e6fbf6);
+  border-left: 4px solid #448bf0;
+}
+.technology-result span {
+  display: block;
+  color: #2771a8;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+.technology-result strong {
+  display: block;
+  margin-top: 5px;
+  font-size: clamp(14px, .92vw, 18px);
+  line-height: 1.5;
+}
+.technology-visuals {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.technology-figure {
+  min-height: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.technology-figure figcaption {
+  flex: 0 0 auto;
+  min-height: 88px;
+  padding: 6px 8px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 6px;
+  color: #173e52;
+}
+.technology-figure-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.technology-figure figcaption span {
+  color: #168d82;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .16em;
+}
+.technology-figure figcaption strong {
+  font-size: clamp(17px, 1.15vw, 22px);
+}
+.technology-caption-detail {
+  margin: 0;
+  font-size: clamp(12px, .95vw, 15px);
+  line-height: 1.45;
+  color: #506879;
+  font-weight: 700;
+}
+.technology-image-button {
+  flex: 1 1 auto;
+  min-height: 0;
+  border-radius: 14px;
+  background: #f5fafc;
+}
+.technology-image-button img { object-fit: contain; }
+
+@media (hover: hover) {
+  .technology-tab:hover { transform: translateY(-3px); border-color: rgba(66,203,187,.5); box-shadow: 0 18px 38px rgba(20,90,105,.14); }
+  .technology-points li:hover { transform: translateX(4px); background: #e7f8f6; }
+}
+
+@media (max-height: 820px) and (min-width: 901px) {
+  .technology-tabs { gap: 7px; margin-bottom: 9px; }
+  .technology-tab { min-height: 40px; padding: 6px 10px; font-size: 14px; }
+  .technology-tab span { width: 26px; height: 26px; font-size: 11px; }
+  .technology-detail { gap: 12px; }
+  .technology-copy { padding: 16px 18px; }
+  .technology-copy h3 { font-size: clamp(23px, 1.75vw, 31px); }
+  .technology-description { margin-top: 10px; font-size: 14px; line-height: 1.5; }
+  .technology-points { margin-top: 10px; gap: 6px; }
+  .technology-points li { padding: 7px 9px 7px 31px; font-size: 13px; line-height: 1.35; }
+  .technology-points li::before { left: 11px; top: 6px; }
+  .technology-result { margin-top: 10px; padding: 9px 12px; }
+  .technology-result strong { font-size: 13px; }
+  .technology-visuals { gap: 9px; }
+  .technology-figure { padding: 7px; }
+  .technology-figure figcaption { min-height: 72px; padding: 3px 5px 7px; }
+  .technology-figure figcaption strong { font-size: 16px; }
+  .technology-figure figcaption span { font-size: 9px; }
+  .technology-caption-detail { font-size: 11px; line-height: 1.35; }
+}
+
+@media (max-width: 900px) {
+  .technology-tabs {
+    display: flex;
+    overflow-x: auto;
+    padding: 2px 1px 6px;
+    scroll-snap-type: x proximity;
+  }
+  .technology-tab { min-width: 230px; scroll-snap-align: start; }
+  .technology-detail { grid-template-columns: 1fr; }
+  .technology-copy { min-height: auto; }
+  .technology-visuals { grid-template-columns: 1fr; }
+  .technology-figure { min-height: 420px; }
+}
+
+@media (max-width: 520px) {
+  .technology-tab { min-width: 205px; font-size: 14px; }
+  .technology-copy h3 { font-size: 27px; }
+  .technology-figure { min-height: 330px; }
+}
+
+/* Prevent horizontal clipping during page transitions on wide and scaled displays. */
+.page,
+.page.before,
+.page.after,
+.page.active {
+  transform: none;
+}
+.page {
+  transition: opacity 300ms ease, visibility 300ms ease;
+}

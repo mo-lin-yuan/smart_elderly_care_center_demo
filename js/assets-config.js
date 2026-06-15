@@ -4,13 +4,19 @@ window.ASSET_CONFIG = Object.freeze({
     hero: "assets/images/hero-cover.webp",
     projectOverview: "assets/images/project-overview.webp",
     systemArchitecture: "assets/images/system-architecture.webp",
-    keyTechnology: "assets/images/key-technology-architecture.webp",
-    schedulingFaultTolerance: "assets/images/scheduling-fault-tolerance.webp",
     closedLoopScenarios: "assets/images/closed-loop-scenarios.webp",
     terminalRobot: "assets/images/terminal-robot.webp",
     terminalWeb: "assets/images/terminal-web.webp",
     terminalMobile: "assets/images/terminal-mobile.webp",
-    fullDemoCover: "assets/images/video-covers/full-demo-cover.webp"
+    fullDemoCover: "assets/images/video-covers/full-demo-cover.webp",
+    techLocalizationFramework: "assets/images/tech-localization-framework.webp",
+    techLocalizationEffect: "assets/images/tech-localization-effect.webp",
+    techBehaviorFramework: "assets/images/tech-behavior-framework.webp",
+    techBehaviorEffect: "assets/images/tech-behavior-effect.webp",
+    techSchedulingFramework: "assets/images/tech-scheduling-framework.webp",
+    techSchedulingEffect: "assets/images/tech-scheduling-effect.webp",
+    techExecutionFramework: "assets/images/tech-execution-framework.webp",
+    techExecutionEffect: "assets/images/tech-execution-effect.webp"
   }),
   videos: Object.freeze({
     fullDemo: Object.freeze({
