@@ -1,0 +1,24 @@
+# PyCharm 配置
+.idea/
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+
+# 虚拟环境
+venv/
+.venv/
+env/
+
+# 环境变量和密钥
+.env
+
+# 测试与构建文件
+.pytest_cache/
+dist/
+build/
+*.egg-info/
+
+# 系统文件
+.DS_Store
+Thumbs.db
