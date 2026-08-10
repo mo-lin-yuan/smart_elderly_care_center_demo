@@ -70,13 +70,40 @@
                         <strong>端—边—云协同多机器人系统</strong>
                         <span>“感知—决策—执行”闭环智能服务体系</span>
                     </div>
+                    <div aria-hidden="true" class="hero-system-decor"><span></span><span></span><span></span></div>
                 </div>
                 <div aria-label="端边云闭环示意图" class="hero-diagram">
+                    <div aria-hidden="true" class="diagram-grid"></div>
+                    <div aria-hidden="true" class="diagram-glow-core"></div>
+                    <div aria-hidden="true" class="diagram-halo halo-one"></div>
+                    <div aria-hidden="true" class="diagram-halo halo-two"></div>
+                    <div aria-hidden="true" class="diagram-halo halo-three"></div>
+                    <div aria-hidden="true" class="diagram-particles">
+                        <span class="particle particle-1"></span>
+                        <span class="particle particle-2"></span>
+                        <span class="particle particle-3"></span>
+                        <span class="particle particle-4"></span>
+                        <span class="particle particle-5"></span>
+                        <span class="particle particle-6"></span>
+                    </div>
                     <div class="orbit orbit-one"></div>
                     <div class="orbit orbit-two"></div>
-                    <div class="node node-cloud"><strong>云</strong><span>全局协同</span></div>
-                    <div class="node node-edge"><strong>边</strong><span>智能感知</span></div>
-                    <div class="node node-end"><strong>端</strong><span>安全执行</span></div>
+                    <div class="orbit orbit-three"></div>
+                    <svg aria-hidden="true" class="diagram-links" viewBox="0 0 500 500">
+                        <defs>
+                            <linearGradient id="diagramLineGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="rgba(112,234,220,0.24)"></stop>
+                                <stop offset="50%" stop-color="rgba(112,234,220,0.88)"></stop>
+                                <stop offset="100%" stop-color="rgba(112,234,220,0.18)"></stop>
+                            </linearGradient>
+                        </defs>
+                        <path class="diagram-link link-top" d="M159 193 C210 140, 290 140, 341 193"></path>
+                        <path class="diagram-link link-right" d="M337 293 C345 348, 309 392, 264 415"></path>
+                        <path class="diagram-link link-left" d="M164 293 C155 349, 194 395, 238 416"></path>
+                    </svg>
+                    <div class="node node-cloud" data-node="cloud" tabindex="0"><strong>云</strong><span>全局协同</span><svg aria-hidden="true" class="node-icon" viewbox="0 0 48 48"><path d="M15 33h18a7 7 0 0 0 0-14 10 10 0 0 0-19-2A6.5 6.5 0 0 0 15 33Z"></path></svg></div>
+                    <div class="node node-edge is-active" data-node="edge" tabindex="0"><strong>边</strong><span>智能感知</span><svg aria-hidden="true" class="node-icon" viewbox="0 0 48 48"><path d="M18 19a6 6 0 1 1 12 0c0 2.6-1.4 4-2.8 5.3-1.1 1-2.2 1.9-2.2 3.7"></path><path d="M21 33h6"></path><path d="M19 37h10"></path><path d="M9 24h3M36 24h3M14 14l2 2M32 14l-2 2"></path></svg></div>
+                    <div class="node node-end" data-node="end" tabindex="0"><strong>端</strong><span>安全执行</span><svg aria-hidden="true" class="node-icon" viewbox="0 0 48 48"><path d="M24 8 13 12v10c0 7 4.8 13.3 11 17 6.2-3.7 11-10 11-17V12L24 8Z"></path><path d="M19.5 23.5 23 27l6-7"></path></svg></div>
                     <div class="flow-label">感知 → 决策 → 执行 → 反馈</div>
                 </div>
             </div>
@@ -200,14 +227,28 @@
                             <p class="technology-caption-detail" id="technology-effect-caption">
                                 三类退化场景下双机器人轨迹估计结果对比</p>
                         </figcaption>
-                        <button aria-label="放大查看效果图" class="image-button technology-image-button"
-                                data-image-key="techLocalizationEffect"
-                                data-image-title="三类退化场景下双机器人轨迹估计效果" id="technology-effect-button"
-                                type="button">
-                            <img alt="三类退化场景下双机器人轨迹估计效果" data-asset="techLocalizationEffect"
-                                 id="technology-effect-image" loading="lazy"/>
-                            <span class="zoom-badge">点击放大 · 查看实验结果</span>
-                        </button>
+                        <div class="technology-effect-gallery" id="technology-effect-gallery">
+                            <button aria-label="放大查看效果图" class="image-button technology-image-button technology-effect-item"
+                                    data-image-key="techLocalizationEffect" data-image-title="三类退化场景下双机器人轨迹估计效果" data-effect-slot="1" type="button">
+                                <img alt="三类退化场景下双机器人轨迹估计效果" loading="lazy"/>
+                                <span class="zoom-badge">点击放大 · 查看实验结果</span>
+                            </button>
+                            <button aria-label="放大查看效果图" class="image-button technology-image-button technology-effect-item"
+                                    data-image-key="" data-image-title="效果图" data-effect-slot="2" type="button" hidden>
+                                <img alt="效果图" loading="lazy"/>
+                                <span class="zoom-badge">点击放大 · 查看实验结果</span>
+                            </button>
+                            <button aria-label="放大查看效果图" class="image-button technology-image-button technology-effect-item"
+                                    data-image-key="" data-image-title="效果图" data-effect-slot="3" type="button" hidden>
+                                <img alt="效果图" loading="lazy"/>
+                                <span class="zoom-badge">点击放大 · 查看实验结果</span>
+                            </button>
+                            <button aria-label="放大查看效果图" class="image-button technology-image-button technology-effect-item"
+                                    data-image-key="" data-image-title="效果图" data-effect-slot="4" type="button" hidden>
+                                <img alt="效果图" loading="lazy"/>
+                                <span class="zoom-badge">点击放大 · 查看实验结果</span>
+                            </button>
+                        </div>
                     </figure>
                 </div>
             </div>
@@ -221,22 +262,36 @@
                 <p>相关论文与专利成果为网络化协同控制、智能感知和多机器人调度等关键技术提供研究支撑。</p>
             </header>
             <div class="achievement-layout fill-content">
-                <section class="achievement-column">
-                    <div class="achievement-title"><span>2</span>
+                <section class="achievement-column paper-column">
+                    <div class="achievement-title"><span>4</span>
                         <div><strong>代表性论文</strong><small>REPRESENTATIVE PAPERS</small></div>
                     </div>
-                    <article class="paper-card">
-                        <span class="achievement-label">PAPER 01</span>
-                        <h3>Finite-Time Vehicle Platoon Control for CPVS Under DoS Attack</h3>
-                        <p>《IEEE Transactions on Intelligent Transportation Systems》</p>
-                        <div class="paper-tags"><span>中科院2区Top</span><span>新锐分区1区top</span></div>
-                    </article>
-                    <article class="paper-card">
-                        <span class="achievement-label">PAPER 02</span>
-                        <h3>Platoon Control for Cyber-Physical Vehicle Systems With Intermittent Communication</h3>
-                        <p>《IEEE Internet of Things Journal》</p>
-                        <div class="paper-tags"><span>中科院2区Top</span><span>新锐分区1区top</span></div>
-                    </article>
+                    <div class="paper-grid">
+                        <article class="paper-card">
+                            <span class="achievement-label">PAPER 01</span>
+                            <h3>Finite-Time Vehicle Platoon Control for CPVS Under DoS Attacks</h3>
+                            <p>《IEEE Transactions on Intelligent Transportation Systems》</p>
+                            <div class="paper-tags"><span>中科院2区Top</span><span>新锐分区1区top</span><span>影响因子9.1</span></div>
+                        </article>
+                        <article class="paper-card">
+                            <span class="achievement-label">PAPER 02</span>
+                            <h3>Platoon Control for Cyber-Physical Vehicle Systems With Intermittent Communication</h3>
+                            <p>《IEEE Internet of Things Journal》</p>
+                            <div class="paper-tags"><span>中科院2区Top</span><span>新锐分区1区top</span><span>影响因子8.7</span></div>
+                        </article>
+                        <article class="paper-card">
+                            <span class="achievement-label">PAPER 03</span>
+                            <h3>Target Search and Cost-Optimal Navigation in Unknown Environments for Multi-Robot Systems</h3>
+                            <p>《IEEE Transactions on Vehicular Technology》</p>
+                            <div class="paper-tags"><span>中科院2区</span><span>新锐分区2区top</span><span>影响因子7.5</span></div>
+                        </article>
+                        <article class="paper-card">
+                            <span class="achievement-label">PAPER 04</span>
+                            <h3>Lightweight Network-Based Multi-Scale Visual Detection System for UAV Photovoltaic Panel Inspection</h3>
+                            <p>《2026 Asian Control Conference (ASCC)》</p>
+                            <div class="paper-tags"><span>控制与自动化</span><span>ASCC 2026</span></div>
+                        </article>
+                    </div>
                 </section>
                 <section class="achievement-column">
                     <div class="achievement-title"><span>3</span>

@@ -8,12 +8,12 @@
   const points = document.getElementById("technology-points");
   const result = document.getElementById("technology-result");
   const frameworkButton = document.getElementById("technology-framework-button");
-  const effectButton = document.getElementById("technology-effect-button");
   const frameworkImage = document.getElementById("technology-framework-image");
-  const effectImage = document.getElementById("technology-effect-image");
   const frameworkCaption = document.getElementById("technology-framework-caption");
   const effectCaption = document.getElementById("technology-effect-caption");
-  if (!config || !tabs.length || !frameworkButton || !effectButton || !frameworkImage || !effectImage) return;
+  const effectGallery = document.getElementById("technology-effect-gallery");
+  const effectButtons = Array.from(document.querySelectorAll(".technology-effect-item"));
+  if (!config || !tabs.length || !frameworkButton || !frameworkImage || !effectGallery || !effectButtons.length) return;
 
   const data = Object.freeze({
     localization: Object.freeze({
@@ -25,9 +25,12 @@
       frameworkKey: "techLocalizationFramework",
       frameworkTitle: "弱全局约束的多模态后端因子图优化流程",
       frameworkCaption: "弱全局约束的多模态后端因子图优化流程",
-      effectKey: "techLocalizationEffect",
-      effectTitle: "三类退化场景下双机器人轨迹估计结果对比",
-      effectCaption: "三类退化场景下双机器人轨迹估计结果对比"
+      effectCaption: "轨迹估计结果与定位误差、稳定性统计",
+      effects: [
+        ["techLocalizationEffect", "三类退化场景下双机器人轨迹估计结果对比"],
+        ["techLocalizationEffectStability", "不同退化场景下定位误差与稳定性统计图"],
+        ["techLocalizationEffectComparison", "不同后端方法在混合退化场景下的轨迹恢复对比图"]
+      ]
     }),
     behavior: Object.freeze({
       kicker: "技术二 · 风险预警",
@@ -38,9 +41,13 @@
       frameworkKey: "techBehaviorFramework",
       frameworkTitle: "双头时序网络异常行为识别与风险预测框架",
       frameworkCaption: "双头时序网络异常行为识别与风险预测框架",
-      effectKey: "techBehaviorEffect",
-      effectTitle: "典型跌倒场景下的异常识别与短时风险预测效果图",
-      effectCaption: "典型跌倒场景下的异常识别与短时风险预测效果图"
+      effectCaption: "异常行为识别、短时风险预测与模型评估结果",
+      effects: [
+        ["techBehaviorEffect", "典型跌倒场景下的异常识别与短时风险预测效果图"],
+        ["techBehaviorEffectTraining", "基础跌倒与多类别异常行为任务训练结果"],
+        ["techBehaviorEffectMetrics", "当前动作识别与未来动作预警评价指标"],
+        ["techBehaviorEffectConfusion", "当前动作识别与未来动作预测混淆矩阵"]
+      ]
     }),
     scheduling: Object.freeze({
       kicker: "技术三 · 协同决策",
@@ -51,9 +58,11 @@
       frameworkKey: "techSchedulingFramework",
       frameworkTitle: "面向动态任务插入的异构多机器人协同调度框架",
       frameworkCaption: "面向动态任务插入的异构多机器人协同调度框架",
-      effectKey: "techSchedulingEffect",
-      effectTitle: "多机器人动态任务调度与覆盖恢复过程图",
-      effectCaption: "多机器人动态任务调度与覆盖恢复过程图"
+      effectCaption: "动态任务调度、覆盖恢复与调度性能对比",
+      effects: [
+        ["techSchedulingEffect", "多机器人动态任务调度与覆盖恢复过程图"],
+        ["techSchedulingEffectComparison", "不同调度方法的系统覆盖率与最大区域空闲度对比"]
+      ]
     }),
     execution: Object.freeze({
       kicker: "技术四 · 安全执行",
@@ -64,9 +73,10 @@
       frameworkKey: "techExecutionFramework",
       frameworkTitle: "面向动态环境的强化学习驱动执行与自适应避障框架",
       frameworkCaption: "面向动态环境的强化学习驱动执行与自适应避障框架",
-      effectKey: "techExecutionEffect",
-      effectTitle: "双服务小车在静动态混合障碍场景中的协同避障效果图",
-      effectCaption: "双服务小车在静动态混合障碍场景中的协同避障效果图"
+      effectCaption: "双服务小车在静动态混合障碍场景中的协同避障效果图",
+      effects: [
+        ["techExecutionEffect", "双服务小车在静动态混合障碍场景中的协同避障效果图"]
+      ]
     })
   });
 
@@ -77,6 +87,18 @@
     button.setAttribute("aria-label", `放大查看${imageTitle}`);
     image.src = src;
     image.alt = imageTitle;
+  };
+
+  const setEffects = (effects) => {
+    effectGallery.classList.toggle("multi", effects.length > 1);
+    effectGallery.dataset.count = String(effects.length);
+    effectButtons.forEach((button, index) => {
+      const item = effects[index];
+      button.hidden = !item;
+      if (!item) return;
+      const image = button.querySelector("img");
+      setImage(button, image, item[0], item[1]);
+    });
   };
 
   const select = (key, focus = false) => {
@@ -99,9 +121,9 @@
     }));
     result.textContent = item.result;
     setImage(frameworkButton, frameworkImage, item.frameworkKey, item.frameworkTitle);
-    setImage(effectButton, effectImage, item.effectKey, item.effectTitle);
+    setEffects(item.effects);
     if (frameworkCaption) frameworkCaption.textContent = item.frameworkCaption || item.frameworkTitle;
-    if (effectCaption) effectCaption.textContent = item.effectCaption || item.effectTitle;
+    if (effectCaption) effectCaption.textContent = item.effectCaption;
   };
 
   tabs.forEach((tab, index) => {
